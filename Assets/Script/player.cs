@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class player : MonoBehaviour
+public class Player : MonoBehaviour
 {
-    public int id;
+    public static int nextId = 0;
+    public int myId;
 
     void OnEnable()
     {
@@ -17,6 +18,11 @@ public class player : MonoBehaviour
         SoundManager.on_SRT -= OnHearSound;
     }
 
+    void Start()
+    {
+        myId = nextId++;
+        Debug.Log("Id is " + myId);
+    }
     void Update()
     {
         float x = Input.GetAxis("Horizontal") * Time.deltaTime * 150.0f;
@@ -25,6 +31,8 @@ public class player : MonoBehaviour
         transform.Rotate(0, x, 0);
         transform.Translate(0, 0, z);
     }
+
+  
 
     void OnHearSound(float distance, Sound sound)
     {

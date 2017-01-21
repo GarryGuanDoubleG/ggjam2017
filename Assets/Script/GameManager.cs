@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
-    public const float pre_round_length;// 30 seconds to place the flag before the round begins
+    public float pre_round_length;// 30 seconds to place the flag before the round begins
 
-    public float round_timer;
+    private float round_timer;
     private bool round_started; //used to tell if we're in pre-round mode
 
     public GameObject p1Flag;
     public GameObject p2Flag;
+
+    public GameObject player1;
+    public GameObject player2;
 
 	// Use this for initialization
 	void Start () {
@@ -28,18 +31,27 @@ public class GameManager : MonoBehaviour {
                 StartRound();
             }
             round_timer = pre_round_length;
-
         }
 	}
 
     void StartRound()
     {
+        if(!player1)
+            return;
+        //set player locations to where they dropped their flag
+        player1.transform.position = p1Flag.transform.position;
+        player1.transform.rotation = p1Flag.transform.rotation;
 
+        if(!player2)
+            return;
+        player2.transform.position = p2Flag.transform.position;
+        player2.transform.rotation = p2Flag.transform.rotation;
     }
 
     void StartPreRound()
     {
         round_timer = pre_round_length;
         round_started = false;
+        //decide where to spawn players
     }
 }
