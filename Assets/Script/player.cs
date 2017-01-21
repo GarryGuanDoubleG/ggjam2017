@@ -5,10 +5,16 @@ using UnityEngine;
 
 public class player : MonoBehaviour
 {
+    public int id;
 
     void OnEnable()
     {
         SoundManager.on_SRT += OnHearSound;
+    }
+
+    void OnDisable()
+    {
+        SoundManager.on_SRT -= OnHearSound;
     }
 
     void Update()
