@@ -39,4 +39,9 @@ public class Sound  : MonoBehaviour
         Debug.Log("play sound");
     }
 
+    void OnCollisionEnter(Collision col)
+    {
+
+    }
+
 }

@@ -13,14 +13,24 @@ public class SoundManager : MonoBehaviour {
 
     void OnCollisionEnter(Collision collider)
     {
-        float distance = Vector3.Distance(collider.transform.position, transform.position);
+        Debug.Log("SM coll");
+        StartSound(collider.gameObject, transform);
+    }
 
-        StartCoroutine(UseDelegateAtTime(distance, collider.gameObject.GetComponent<Sound>()));
+    //object hit
+    public void StartSound(GameObject collidedObject, Transform my_transform)
+    {
+        float distance = Vector3.Distance(collidedObject.transform.position, my_transform.position);
+        Sound sound = collidedObject.GetComponent<Sound>();
+        if (sound)
+        {
+            StartCoroutine(PlaySound(distance, sound));
+        }
 
         Debug.Log("Player collision");
     }
 
-    public IEnumerator UseDelegateAtTime(float distance, Sound sound)
+    public static IEnumerator PlaySound(float distance, Sound sound)
     {
         float time_left = distance / sound_speed;
         //wait until time left is < 0
@@ -30,7 +40,8 @@ public class SoundManager : MonoBehaviour {
         }
 
         sound.playSound();
-        on_SRT(distance, sound);
+        if(on_SRT != null)
+            on_SRT(distance, sound);
 
         yield break;
     }
