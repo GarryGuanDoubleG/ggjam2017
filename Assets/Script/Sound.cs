@@ -13,6 +13,12 @@ public class Sound  : MonoBehaviour
     public float cooldown;
     public float play_rate = .5f;
 
+    //read only
+    public float amplitude;
+    public float length;
+    public float frequency;
+    public float channels;
+
     delegate void MyDelegate(int num);
 
     void Start()
@@ -20,7 +26,12 @@ public class Sound  : MonoBehaviour
         sound = GetComponent<AudioSource>();
         sound.playOnAwake = false;
 
-        cooldown = 0.0f;
+        AudioClip clip = sound.clip;
+        length = clip.length;
+        frequency = clip.frequency;
+        channels = clip.channels;
+
+        //amplitude = distance / frequency;
 
         Debug.Log("Start up cube ");
     }
@@ -38,17 +49,6 @@ public class Sound  : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision col)
-    {
-
-    }
-
-
-    void OnCollisionStay(Collision col)
-    {
-
-    }
-
-    void OnTriggerStay(Collider col)
     {
         playSound(col.transform);
     }
