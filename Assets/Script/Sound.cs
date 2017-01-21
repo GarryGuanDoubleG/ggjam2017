@@ -6,7 +6,6 @@ using UnityEngine.Audio;
 //container class that stores audio clip to be played
 public class Sound  : MonoBehaviour
 {
-    static const float sound_speed = 340.29f;//meters per second
 
     AudioSource sound;
     public float intensity;
@@ -19,8 +18,6 @@ public class Sound  : MonoBehaviour
     public float frequency;
     public float channels;
 
-    delegate void MyDelegate(int num);
-
     void Start()
     {
         sound = GetComponent<AudioSource>();
@@ -30,46 +27,25 @@ public class Sound  : MonoBehaviour
         length = clip.length;
         frequency = clip.frequency;
         channels = clip.channels;
-
-        //amplitude = distance / frequency;
-
-        Debug.Log("Start up cube ");
     }
 
-    public void playSound(Transform target)
+    void OnEnable()
     {
-        cooldown -= Time.deltaTime;
+        SoundManager.on_SRT += playSound;
+    }
 
-        if (cooldown > 0) 
-            return;
+    void OnDisable()
+    {
+        SoundManager.on_SRT -= playSound;
+    }
+
+    public void playSound()
+    {
 
         // last parameter volume can be adjusted through rolloff in 3d sound settings
         AudioSource.PlayClipAtPoint(sound.clip, transform.position, 1);
-        cooldown = play_rate;
+
+        Debug.Log("play sound");
     }
-
-    void OnCollisionEnter(Collision col)
-    {
-        playSound(col.transform);
-    }
-}
-
-public class SoundManager
-{
-    public delegate void SoundReachesTarget();//can be filled out with amplitude, volume, angle, etc.
-    public IEnumerator UseDelegateAtTime(SoundReachesTarget srt_method, float time_left)
-    {
-
-        //wait until time left is < 0
-        for (float timer = 0; timer < time_left; timer += Time.deltaTime)
-        {
-            yield return null;
-        }
-
-        srt_method();//run  the delegate when sound reaches the target
-
-        yield break;
-    }
-
 
 }
