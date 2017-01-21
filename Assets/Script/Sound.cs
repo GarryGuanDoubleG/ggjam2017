@@ -13,7 +13,6 @@ public class Sound  : MonoBehaviour
     public float play_rate = .5f;
 
     //read only
-    public float amplitude;
     public float length;
     public float frequency;
     public float channels;
@@ -27,16 +26,8 @@ public class Sound  : MonoBehaviour
         length = clip.length;
         frequency = clip.frequency;
         channels = clip.channels;
-    }
 
-    void OnEnable()
-    {
-        SoundManager.on_SRT += playSound;
-    }
-
-    void OnDisable()
-    {
-        SoundManager.on_SRT -= playSound;
+        Debug.Log("Sound Frequency " + frequency);
     }
 
     public void playSound()

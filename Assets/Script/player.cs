@@ -5,6 +5,12 @@ using UnityEngine;
 
 public class player : MonoBehaviour
 {
+
+    void OnEnable()
+    {
+        SoundManager.on_SRT += OnHearSound;
+    }
+
     void Update()
     {
         float x = Input.GetAxis("Horizontal") * Time.deltaTime * 150.0f;
@@ -12,5 +18,11 @@ public class player : MonoBehaviour
 
         transform.Rotate(0, x, 0);
         transform.Translate(0, 0, z);
+    }
+
+    void OnHearSound(float distance, Sound sound)
+    {
+        Debug.Log("Distance " + distance);
+        Debug.Log("frequency" + sound.frequency);
     }
 }
