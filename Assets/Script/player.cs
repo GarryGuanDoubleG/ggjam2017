@@ -71,6 +71,7 @@ public class Player : MonoBehaviour
     }
     public void Respawn()
     {
+        Debug.Log("Respawn");
         Vector3 start_pad_pos = my_startpad.transform.position;
         
         start_pad_pos.y += .3f;//go up a litte bit

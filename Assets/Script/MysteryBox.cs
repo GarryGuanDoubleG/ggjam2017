@@ -14,7 +14,7 @@ public class MysteryBox : MonoBehaviour {
     public IEnumerator RotateTop(Transform top, Transform pivot)
     {
         float duration = 1.0f;
-        float rotation = 45.0f;
+        float rotation = 60.0f;
         float total_rotation = 0;
 
        
