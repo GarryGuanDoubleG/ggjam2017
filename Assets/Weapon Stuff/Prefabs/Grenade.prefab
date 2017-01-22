@@ -9,49 +9,48 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1132938104874838}
+  m_RootGameObject: {fileID: 1919474497447844}
   m_IsPrefabParent: 1
---- !u!1 &1132938104874838
+--- !u!1 &1919474497447844
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4409224872137774}
-  - component: {fileID: 33541651183346308}
-  - component: {fileID: 65508480095362592}
-  - component: {fileID: 23685476905566620}
-  - component: {fileID: 54426443318670012}
-  - component: {fileID: 114705346014638760}
-  - component: {fileID: 82290395313259634}
-  - component: {fileID: 114467324967363610}
+  - component: {fileID: 4927586985957640}
+  - component: {fileID: 33723150689972752}
+  - component: {fileID: 136652135063472454}
+  - component: {fileID: 23081758173802972}
+  - component: {fileID: 54419496806165642}
+  - component: {fileID: 114309346572398838}
+  - component: {fileID: 82838828417835102}
   m_Layer: 0
-  m_Name: Flag
+  m_Name: Grenade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4409224872137774
+--- !u!4 &4927586985957640
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1132938104874838}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.33, y: 0, z: -2.63}
-  m_LocalScale: {x: 0.43466613, y: 1, z: 0.30038851}
+  m_GameObject: {fileID: 1919474497447844}
+  m_LocalRotation: {x: -0.18245989, y: -0, z: -0, w: 0.9832133}
+  m_LocalPosition: {x: 0.62190866, y: 19.11, z: -6.61}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23685476905566620
+  m_LocalEulerAnglesHint: {x: -21.026001, y: 0, z: 0}
+--- !u!23 &23081758173802972
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1132938104874838}
+  m_GameObject: {fileID: 1919474497447844}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -59,7 +58,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5d44fdc888865514586cd3ec28b7b123, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -77,58 +76,46 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!33 &33541651183346308
+--- !u!33 &33723150689972752
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1132938104874838}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &54426443318670012
+  m_GameObject: {fileID: 1919474497447844}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &54419496806165642
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1132938104874838}
+  m_GameObject: {fileID: 1919474497447844}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 1.5
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 112
   m_CollisionDetection: 0
---- !u!65 &65508480095362592
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1132938104874838}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!82 &82290395313259634
+--- !u!82 &82838828417835102
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1132938104874838}
+  m_GameObject: {fileID: 1919474497447844}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b2ef45e742268f24092c8528bc1c2ff8, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: e5c79f0231f03554c8133c6e8438135d, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 42
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -191,32 +178,32 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &114467324967363610
+--- !u!114 &114309346572398838
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1132938104874838}
+  m_GameObject: {fileID: 1919474497447844}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6624de9f078d5a41809edbf757a6df6, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f424ebb5ffb1244793e87c6b3c8f3ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intensity: 0
-  cooldown: 0
-  play_rate: 0.5
-  length: 0
-  frequency: 0
-  channels: 0
---- !u!114 &114705346014638760
-MonoBehaviour:
+  blast: {fileID: 8300000, guid: e5c79f0231f03554c8133c6e8438135d, type: 3}
+  timeToLive: 10
+  isGrenade: 1
+  isTomahawk: 0
+  tomaSpeed: 20
+--- !u!136 &136652135063472454
+CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1132938104874838}
+  m_GameObject: {fileID: 1919474497447844}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c46e48b9fc28b494282bd22ea529eaa2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myId: 0
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}

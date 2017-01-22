@@ -15,6 +15,7 @@ public class SoundManager : MonoBehaviour {
     void Awake()
     { //called when an instance awakes in the game
         instance = this; //set our static reference to our newly initialized instance
+
     }
 
     void OnTriggerEnter(Collider collider)
@@ -25,6 +26,8 @@ public class SoundManager : MonoBehaviour {
     //object hit or emitting the sound
     public static void StartSound(Sound sound_source)
     {
+        if(Time.time < 0.3f)
+            return;
         float distance = Vector3.Distance(sound_source.transform.position, instance.transform.position);
         Sound sound = sound_source.GetComponent<Sound>();
         if (sound)

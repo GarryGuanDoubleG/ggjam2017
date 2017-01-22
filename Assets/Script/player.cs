@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     public Flag my_flag;
     public GameObject my_startpad;
 
+    public bool[] weaponsEnabled;
+
     void OnEnable()
     {
         SoundManager.on_SRT += OnHearSound;
@@ -20,11 +22,6 @@ public class Player : MonoBehaviour
     void OnDisable()
     {
         SoundManager.on_SRT -= OnHearSound;
-    }
-
-    void OnCollisionEnter(Collision col)
-    {
-        
     }
 
     void Start()

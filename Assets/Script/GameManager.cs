@@ -4,7 +4,9 @@ using UnityEngine;
 
 
 public class GameManager : MonoBehaviour {
-    public float pre_round_length;// 30 seconds to place the flag before the round begins
+    public static float pre_round_length;// 30 seconds to place the flag before the round begins
+
+    public bool ctf_mode; //playing in capture the flag mode
 
     public float round_timer;
     private bool round_started; //used to tell if we're in pre-round mode
@@ -20,7 +22,7 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		StartPreRound();
+        StartPreRound();
 	}
 	
 	// Update is called once per frame
@@ -33,8 +35,7 @@ public class GameManager : MonoBehaviour {
                 round_started = true;
                 StartRound();
                 round_timer = pre_round_length;
-            }
-           
+            }    
         }
 	}
 
@@ -53,6 +54,14 @@ public class GameManager : MonoBehaviour {
     {
         round_timer = pre_round_length;
         round_started = false;
+        if (!ctf_mode)
+        {
+            Debug.Log("Ctf mode is " + ctf_mode);
+            if (p1Flag)
+                p1Flag.gameObject.SetActive(false);
+            if (p2Flag)
+                p2Flag.gameObject.SetActive(false);
+        }
         //decide where to spawn players
     }
 

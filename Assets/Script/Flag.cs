@@ -13,7 +13,7 @@ public class Flag : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        Debug.Log("Fag");
 	}
 
     void OnTriggerEnter(Collider other)
