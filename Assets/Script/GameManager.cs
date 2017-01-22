@@ -36,24 +36,17 @@ public class GameManager : MonoBehaviour {
             }
            
         }
-
 	}
 
     void StartRound()
     {
         if(!player1)
             return;
-        //set player locations to where they dropped their flag
-        p1Flag.transform.parent = null;
-        player1.transform.position = p1StartPad.transform.position;
-        player1.transform.rotation = p1StartPad.transform.rotation;
+        player1.Respawn();
 
         if (!player2)
             return;
-        //set player locations to where they dropped their flag
-        p2Flag.transform.parent = null;
-        player2.transform.position = p2StartPad.transform.position;
-        player2.transform.rotation = p2StartPad.transform.rotation;
+        player2.Respawn();
     }
 
     void StartPreRound()

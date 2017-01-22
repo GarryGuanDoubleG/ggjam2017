@@ -31,7 +31,8 @@ public class Player : MonoBehaviour
     {
         myId = nextId++;
         haveEnemyFlag = false;
-        Debug.Log("Id is " + myId);
+
+        my_flag.myId = myId;
     }
     void Update()
     {
@@ -44,12 +45,13 @@ public class Player : MonoBehaviour
 
     void OnHearSound(float distance, Sound sound)
     {
-        Debug.Log("Distance " + distance);
-        Debug.Log("frequency" + sound.frequency);
+        //appy sound information
     }
 
     public void Death()
     {
+        Vector3 start_pad_pos = my_startpad.transform.position;
+        start_pad_pos.y += .3f;
         transform.position = my_startpad.transform.position;
         transform.rotation = my_startpad.transform.rotation;
 
@@ -66,5 +68,14 @@ public class Player : MonoBehaviour
             }
         }
 
+    }
+    public void Respawn()
+    {
+        Vector3 start_pad_pos = my_startpad.transform.position;
+        
+        start_pad_pos.y += .3f;//go up a litte bit
+
+        transform.position = start_pad_pos;
+        transform.rotation = Quaternion.identity;//set up 0
     }
 }

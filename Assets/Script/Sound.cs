@@ -26,22 +26,11 @@ public class Sound  : MonoBehaviour
         length = clip.length;
         frequency = clip.frequency;
         channels = clip.channels;
-
-        Debug.Log("Sound Frequency " + frequency);
     }
 
     public void playSound()
     {
-
         // last parameter volume can be adjusted through rolloff in 3d sound settings
         AudioSource.PlayClipAtPoint(sound.clip, transform.position, 1);
-
-        Debug.Log("play sound");
     }
-
-    void OnCollisionEnter(Collision col)
-    {
-
-    }
-
 }

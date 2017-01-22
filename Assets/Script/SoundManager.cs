@@ -5,29 +5,32 @@ using UnityEngine.EventSystems;
 
 //an Event Manager that calls a delegate on an event
 public class SoundManager : MonoBehaviour {
+    static public SoundManager instance;
 
     public delegate void SoundReachesTarget(float distance, Sound sound);//fill in relevant parametes
     public static event SoundReachesTarget on_SRT;
-
+    
     public static float sound_speed = 340.29f;//meters per second
 
-    void OnCollisionEnter(Collision collider)
-    {
-        Debug.Log("SM coll");
-        StartSound(collider.gameObject, transform);
+    void Awake()
+    { //called when an instance awakes in the game
+        instance = this; //set our static reference to our newly initialized instance
     }
 
-    //object hit
-    public void StartSound(GameObject collidedObject, Transform my_transform)
+    void OnTriggerEnter(Collider collider)
     {
-        float distance = Vector3.Distance(collidedObject.transform.position, my_transform.position);
-        Sound sound = collidedObject.GetComponent<Sound>();
+        StartSound(collider.gameObject.GetComponent<Sound>());
+    }
+
+    //object hit or emitting the sound
+    public static void StartSound(Sound sound_source)
+    {
+        float distance = Vector3.Distance(sound_source.transform.position, instance.transform.position);
+        Sound sound = sound_source.GetComponent<Sound>();
         if (sound)
         {
-            StartCoroutine(PlaySound(distance, sound));
+            instance.StartCoroutine(PlaySound(distance, sound));
         }
-
-        Debug.Log("Player collision");
     }
 
     public static IEnumerator PlaySound(float distance, Sound sound)

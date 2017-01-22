@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Flag : MonoBehaviour {
 
-    public static int nextId = 0;
     public int myId;
+    public Sound sonicBoom;
 	// Use this for initialization
 	void Start () {
-        myId = nextId++;
+
 	}
 	
 	// Update is called once per frame
@@ -16,7 +16,7 @@ public class Flag : MonoBehaviour {
 		
 	}
 
-    void OnCollisionEnter(Collision other)
+    void OnTriggerEnter(Collider other)
     {
         //only player collisions matter
         if ((other.gameObject.tag != "Player") && (other.gameObject.tag != "MainCamera"))
@@ -41,6 +41,8 @@ public class Flag : MonoBehaviour {
             this.transform.Rotate(rotate);
 
             player.haveEnemyFlag = true;
+            SoundManager.StartSound(sonicBoom);
+            //play sound
         }
         else
         {
@@ -51,4 +53,7 @@ public class Flag : MonoBehaviour {
         }
 
     }
+
+
+    
 }
